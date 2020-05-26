@@ -127,7 +127,7 @@ public class Main extends JFrame{
 
 
             wardrobeButtons[i] = new JButton(buttonLabels[i]);
-            wardrobeButtons[i].setFont(new Font("Arial", Font.PLAIN, 20));
+            wardrobeButtons[i].setFont(new Font("Arial", Font.PLAIN, 40));
             wardrobeButtons[i].setLayout(null);
             wardrobeButtons[i].setSize(new Dimension(w,(int)(h/6.5)));
             wardrobeButtons[i].setPreferredSize(wardrobeButtons[i].getSize());
@@ -165,21 +165,68 @@ public class Main extends JFrame{
     }
 
     public void makeInfoPanel(){
-        infoPanel.setLayout(new BorderLayout());
+        infoPanel.setLayout(null);
         Dimension dim = infoPanel.getPreferredSize();
         int w = dim.width;
         int h = dim.height;
 
-        JLabel weatherLabel = new JLabel("dfdfs");
+        JLabel weatherLabel = new JLabel("");
         BufferedImage weatherImage = null;
         try {
             weatherImage = ImageIO.read(getClass().getResourceAsStream("assets/InfoPanel/Weather.jpg"));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        weatherLabel.setSize(2, h/3);
+        weatherLabel.setSize(w, h/3);
+        weatherLabel.setLocation(0,0);
         weatherLabel.setIcon(new ImageIcon(weatherImage));
-        infoPanel.add(weatherLabel, BorderLayout.PAGE_START);
+
+        JLabel rainLabel = new JLabel("");
+        BufferedImage rainImage = null;
+        try {
+            rainImage = ImageIO.read(getClass().getResourceAsStream("assets/InfoPanel/Rain.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        rainLabel.setSize(w, h/6);
+        rainLabel.setLocation(0,h/3);
+        rainLabel.setIcon(new ImageIcon(rainImage));
+        rainLabel.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 0, Color.GRAY));
+
+        JLabel title1 = new JLabel("Car crash on the E4 Highway");
+        JLabel response1 = new JLabel("Commuting is recommended");
+        JLabel response2 = new JLabel("thus wear sturdy clothes");
+
+        JLabel title2 = new JLabel("Meating with Company X at 4");
+        JLabel response3 = new JLabel("Wear a large tie");
+
+        title1.setSize(w, h/12);
+        title2.setSize(w, h/12);
+        response1.setSize(2*w/3, h/12);
+        response2.setSize(2*w/3, h/12);
+        response3.setSize(2*w/3, h/12);
+
+        title1.setFont(new Font("Arial", Font.PLAIN, 30));
+        title2.setFont(new Font("Arial", Font.PLAIN, 30));
+        response1.setFont(new Font("Arial", Font.PLAIN, 20));
+        response2.setFont(new Font("Arial", Font.PLAIN, 20));
+        response3.setFont(new Font("Arial", Font.PLAIN, 20));
+
+        title1.setLocation(w/8, h/2);
+        response1.setLocation(w/3,9*h/16);
+        response2.setLocation(w/3,19*h/32);
+        title2.setLocation(w/8,11*h/16);
+        response3.setLocation(w/3,12*h/16);
+
+        infoPanel.add(weatherLabel);
+        infoPanel.add(rainLabel);
+
+        infoPanel.add(title1);
+        infoPanel.add(response1);
+        infoPanel.add(response2);
+        infoPanel.add(title2);
+        infoPanel.add(response3);
 
 
     }
