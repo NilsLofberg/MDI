@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="MDI:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MDI_jar</output-path>
+    <root id="archive" name="MDI.jar">
+      <element id="module-output" name="MDI" />
+    </root>
+  </artifact>
+</component>
