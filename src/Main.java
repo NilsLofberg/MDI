@@ -127,6 +127,7 @@ public class Main extends JFrame{
 
 
             wardrobeButtons[i] = new JButton(buttonLabels[i]);
+            wardrobeButtons[i].setFont(new Font("Arial", Font.PLAIN, 20));
             wardrobeButtons[i].setLayout(null);
             wardrobeButtons[i].setSize(new Dimension(w,(int)(h/6.5)));
             wardrobeButtons[i].setPreferredSize(wardrobeButtons[i].getSize());
