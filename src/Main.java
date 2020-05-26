@@ -95,12 +95,12 @@ public class Main extends JFrame{
         wardrobeButtons = new JButton[6];
         String[] buttonLabels = {"Shirts", "Pants", "Suits", "Shoes", "Accessories", "Ties"};
         String[] locations = {
-                "src/assets/Icons/shirt.png",
-                "src/assets/Icons/pants.png",
-                "src/assets/Icons/suit.png",
-                "src/assets/Icons/shoes.png",
-                "src/assets/Icons/accessories.png",
-                "src/assets/Icons/tie.png"
+                "assets/Icons/shirt.png",
+                "assets/Icons/pants.png",
+                "assets/Icons/suit.png",
+                "assets/Icons/shoes.png",
+                "assets/Icons/accessories.png",
+                "assets/Icons/tie.png"
         };
 
         for(int i = 0; i < wardrobeButtons.length; i++){
@@ -109,7 +109,8 @@ public class Main extends JFrame{
             BufferedImage tempimg = null;
 
             try {
-                tempimg = ImageIO.read(new File(locations[i]));
+                String path = locations[i];
+                tempimg = ImageIO.read(getClass().getResourceAsStream(path));
                 tempimg = resize(tempimg, h/16);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -171,7 +172,7 @@ public class Main extends JFrame{
         JLabel weatherLabel = new JLabel("dfdfs");
         BufferedImage weatherImage = null;
         try {
-            weatherImage = ImageIO.read(new File("src/assets/InfoPanel/Weather.jpg"));
+            weatherImage = ImageIO.read(getClass().getResourceAsStream("assets/InfoPanel/Weather.jpg"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -192,12 +193,12 @@ public class Main extends JFrame{
 
         selectedClothingLabels = new JLabel[6];
         String[] location = {
-                "src/assets/Shirts/Shirt_0.jpg",
-                "src/assets/Pants/Pants_0.jpg",
-                "src/assets/Suits/Suit_0.jpg",
-                "src/assets/Shoes/Shoes_0.jpg",
-                "src/assets/Accessoaries/Accessoaries_0.jpg",
-                "src/assets/Ties/Tie_0.jpg"
+                "assets/Shirts/Shirt_0.jpg",
+                "assets/Pants/Pants_0.jpg",
+                "assets/Suits/Suit_0.jpg",
+                "assets/Shoes/Shoes_0.jpg",
+                "assets/Accessoaries/Accessoaries_0.jpg",
+                "assets/Ties/Tie_0.jpg"
         };
         for(int i = 0; i < selectedClothingLabels.length; i++){
             selectedClothingLabels[i] = new JLabel();
@@ -205,7 +206,7 @@ public class Main extends JFrame{
             BufferedImage tempImage = null;
 
             try {
-                tempImage = ImageIO.read(new File(location[i]));
+                tempImage = ImageIO.read(getClass().getResourceAsStream(location[i]));
                 tempImage = resize(tempImage, 220);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -233,12 +234,12 @@ public class Main extends JFrame{
 
         String[] location = {
                 "",
-                "src/assets/Shirts/Shirt_",
-                "src/assets/Pants/Pants_",
-                "src/assets/Suits/Suit_",
-                "src/assets/Shoes/Shoes_",
-                "src/assets/Accessoaries/Accessoaries_",
-                "src/assets/Ties/Tie_"
+                "assets/Shirts/Shirt_",
+                "assets/Pants/Pants_",
+                "assets/Suits/Suit_",
+                "assets/Shoes/Shoes_",
+                "assets/Accessoaries/Accessoaries_",
+                "assets/Ties/Tie_"
         };
 
         int[] nnumberOfClothing = {0, 10, 6, 7, 5, 5, 4};
@@ -260,7 +261,7 @@ public class Main extends JFrame{
             BufferedImage tempimg = null;
 
             try {
-                tempimg = ImageIO.read(new File("src/assets/Icons/back.png"));
+                tempimg = ImageIO.read(getClass().getResourceAsStream("assets/Icons/back.png"));
                 tempimg = resize(tempimg, h/20);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -316,7 +317,7 @@ public class Main extends JFrame{
                 BufferedImage tempImage = null;
                 String imgLocation = location[i] + j + ".jpg";
                 try {
-                    tempImage = ImageIO.read(new File(imgLocation));
+                    tempImage = ImageIO.read(getClass().getResourceAsStream(imgLocation));
                     tempImage = resize(tempImage, 220);
                 } catch (Exception e) {
                     e.printStackTrace();
