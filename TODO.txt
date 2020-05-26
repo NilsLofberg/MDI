@@ -1,0 +1,3 @@
+InfoPanelen till höger är inte riktigt klar, men den är inte interaktiv så det borde gå snabbt
+
+när programmer byggs till en jar fil värkar det som att assets inte kan laddas
